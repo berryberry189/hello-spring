@@ -27,4 +27,27 @@ public class HelloController {
         return "hello " + name;
     }
     // ResponseBody : http의 바디부에 이 데이터를 직접 넣어주겠다. (화면이 없어도 리턴 데이터가 그대로 출력됨 ㄷㄷ )
+
+    @GetMapping("hello-api")
+    @ResponseBody
+    public Hello helloApi(@RequestParam("name") String name){
+        Hello hello = new Hello();
+        hello.setName(name);
+        return hello;  // →
+        // 반환이되는 경우 (default) json 방식으로 출력됨
+    }
+
+    static class Hello {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
+
 }
