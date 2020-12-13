@@ -11,5 +11,5 @@ public interface MemberRepository {
     Optional<Member> findById(Long Id);
     Optional<Member> findByName(String name);
     // Optional - 자바8에 들어가있는 기능. Wapper Class. null로 반환되는 경우에도 npe 안 떨어짐
-    List<Member> fimdAll();
+    List<Member> findAll();
 }
