@@ -8,7 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        // 직접 생성하는것(new)이 아닌 외부에서 주입하도록 변경 ( DI )
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원가입
